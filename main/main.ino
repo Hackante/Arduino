@@ -35,14 +35,25 @@ void loop()
   // Play the tone
   startTone(tonePin);
 
-  // press button
-  waitForButton(buttonPin);
+  // press button and play tone when it hasn't playerd for 200ms
+  bool button = false;
+  while (button == false)
+  {
+    if (millis() - startTime > 200)
+    {
+      stopTone(tonePin);
+    }
+    button = checkButton(buttonPin);
+  }
+
+  // stop tone if check button is true before 200ms
+  stopTone(tonePin);
 
   // stop timer
   long ergebnis = millis() - startTime;
 
   // stop tone
-  stopTone(tonePin);
+  // stopTone(tonePin);
 
   // tell the user the result
   lcd.clear();
@@ -98,4 +109,14 @@ void startTone(int tonePin)
 void stopTone(int tonePin)
 {
   digitalWrite(tonePin, LOW);
+}
+
+// check if button is pressed
+boolean checkButton(int readPin)
+{
+  if (digitalRead(readPin) == HIGH)
+  {
+    return true;
+  }
+  return false;
 }
