@@ -20,6 +20,5 @@ The other components are connected with a bread board: (Arduino - BB)
 - Button (8f-10f)
 - Resistor (-10 - 10j)
 
-<br>
 <hr>
 Project for HMM
