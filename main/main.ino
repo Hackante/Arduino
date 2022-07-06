@@ -71,10 +71,15 @@ void loop()
 void startMenue()
 {
   lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Start Menue");
   lcd.setCursor(0, 1);
   lcd.print("Press to play");
+  int currPos = 0;
+  while(digitalRead(buttonPin) == LOW) {
+      String line1[] = "Welcome to REACTION TIMER! *** ";
+      lcd.setCursor(0, 0);
+      
+      
+  }
 }
 
 // wait for button to be pressed
